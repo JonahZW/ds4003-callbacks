@@ -133,12 +133,14 @@ app.layout = html.Div([
 
 ], className = 'row')
 
+## callback which takes country multi-select and year slider as input;
+#      returns updated graph as output
 @callback(
-        Output('graph', 'figure'),
+        Output('graph', 'figure'),    # updates graph (id='graph') w new fig
         Input('country','value'),
         Input('year','value')
 )
-def update_graph(selected_countries, selected_years):
+def update_graph(selected_countries, selected_years): # basically just same code which created original 'placeholder' figure
     # mini-fy df down to only include the countries we want to include
     mini_df = df.loc[df['country'].isin(selected_countries)]
 
