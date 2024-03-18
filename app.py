@@ -9,6 +9,7 @@ import math
 # initialize app
 stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css'] # load the CSS stylesheet
 app = Dash(__name__, external_stylesheets=stylesheets) # initialize the app
+server = app.server # make it work for render
 
 # read CSV in and visually inspect
 df = pd.read_csv('gdp_pcap.csv', low_memory=False)
@@ -166,6 +167,6 @@ def update_graph(selected_countries, selected_years):
     return fig_line_marker
 
 
-# run app in new tab - just for when developing to have it easier to see
-if __name__ == '__main__':
-    app.run(jupyter_mode='tab', debug=True)
+# run app
+if __name__ == "__main__":
+    app.run_server(debug=True)
