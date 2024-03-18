@@ -3,6 +3,4 @@ numpy
 pandas
 scikit_learn
 plotly
-random
-math
 gunicorn
